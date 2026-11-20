@@ -1,0 +1,283 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  color: var(--ink-900);
+  background: var(--bg-page);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--brand-600);
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #cdebd9;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b3e5c9;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.text-muted {
+  color: var(--ink-500);
+}
+
+.text-caption {
+  color: var(--ink-400);
+  font-size: 12px;
+}
+
+.nowrap {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 页面骨架 */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 1000px;
+}
+
+.page-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line-200);
+  border-radius: 12px;
+  box-shadow: var(--sh-card);
+}
+
+.filter-card {
+  padding: 16px 20px 4px;
+
+  .el-form-item {
+    margin-bottom: 12px;
+    margin-right: 16px;
+  }
+}
+
+.table-card {
+  padding: 8px 20px 20px;
+}
+
+.table-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  padding: 4px 0;
+
+  .count {
+    color: var(--ink-500);
+    font-size: 13px;
+  }
+}
+
+.section {
+  padding: 20px 24px;
+}
+
+.section-title {
+  margin: 0 0 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink-900);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .hint {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--ink-500);
+  }
+}
+
+.edit-page {
+  padding-bottom: 76px;
+}
+
+.edit-footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin: 16px calc(var(--page-pad) * -1) calc(var(--page-pad) * -1);
+  padding: 16px 24px;
+  background: var(--bg-card);
+  border-top: 1px solid var(--line-200);
+}
+
+/* 单元格组合 */
+.cell-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+
+  .title {
+    font-size: 14px;
+    color: var(--ink-900);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .sub {
+    font-size: 11px;
+    color: var(--ink-400);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.cell-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 20px;
+}
+
+.thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: var(--brand-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-600);
+  overflow: hidden;
+
+  &.square {
+    width: 40px;
+    height: 40px;
+  }
+
+  &.cover16x9 {
+    width: 96px;
+    height: 54px;
+  }
+
+  &.dark {
+    background: linear-gradient(135deg, var(--dark-tile-1), var(--dark-tile-2));
+    color: var(--dark-icon);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.metric-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--ink-500);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 空 / 错误 */
+.state-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 260px;
+  padding: 32px;
+  color: var(--ink-500);
+}
+
+.tag-chip {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 6px;
+  background: var(--brand-100);
+  color: var(--brand-700);
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* 卡片网格 */
+.stat-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.trend-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.trend-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 150px;
+
+  i {
+    display: block;
+    width: 8px;
+    border-radius: 2px;
+  }
+
+  .users {
+    background: var(--brand-600);
+  }
+  .posts {
+    background: var(--success-600);
+  }
+  .comments {
+    background: var(--warning-600);
+  }
+}
